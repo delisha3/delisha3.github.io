@@ -2,58 +2,176 @@
 <html>
 <head>
     <title>Your Website Name</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        .product {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .buy-button {
-            background-color: #007cba;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <div class="style-selector">
+            <h3>🎨 Choose Your Style</h3>
+            <div class="style-buttons">
+                <button class="style-btn active" onclick="switchStyle('style.css')" data-style="default">Default</button>
+                <button class="style-btn" onclick="switchStyle('style-glassmorphism.css')" data-style="glass">Glassmorphism</button>
+                <button class="style-btn" onclick="switchStyle('style-dark-neon.css')" data-style="neon">Dark Neon</button>
+                <button class="style-btn" onclick="switchStyle('style-minimalist.css')" data-style="minimal">Minimalist</button>
+                <button class="style-btn" onclick="switchStyle('style-gaming.css')" data-style="gaming">Gaming</button>
+            </div>
+        </div>
+        
         <h1>My Game Levels</h1>
         <p>Welcome to my collection of custom game levels!</p>
         
-        <div class="product">
-            <h3>Epic Adventure Pack</h3>
-            <p>5 challenging levels with unique mechanics</p>
-            <p><strong>Price: $10</strong></p>
-            <a href="#" class="buy-button">Buy Now</a>
+        <div class="profile-section">
+            <h2>About Me</h2>
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h3>osu! Mapping Commission</h3>
+                    <p>Hello! I'm known as Delis on osu!, I have been mapping for around 13 years.
+                        The definitive difference as a way to approach mapping is that I used to be a top player in the game while being quite well-known in the mapping scene as well.
+                        
+                    </p>
+                    <div class="stats">
+                        <span class="stat">40+ Ranked/Loved Maps</span>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <div class="product">
-            <h3>Puzzle Master Collection</h3>
-            <p>10 mind-bending puzzle levels</p>
-            <p><strong>Price: $15</strong></p>
-            <a href="#" class="buy-button">Buy Now</a>
+        <div class="showcase-section">
+            <h2>Creation previews</h2>
+            <div class="video-showcase">
+                <div class="showcase-item" data-video="video1.mp4">
+                    <img src="https://via.placeholder.com/300x200/4CAF50/white?text=Map+Example+1" alt="Map Example 1" class="showcase-image">
+                    <div class="video-popup">
+                        <video muted loop>
+                            <source src="video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="popup-arrow"></div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item" data-video="video2.mp4">
+                    <img src="https://via.placeholder.com/300x200/2196F3/white?text=Map+Example+2" alt="Map Example 2" class="showcase-image">
+                    <div class="video-popup">
+                        <video muted loop>
+                            <source src="video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="popup-arrow"></div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item" data-video="video3.mp4">
+                    <img src="https://via.placeholder.com/300x200/FF5722/white?text=Map+Example+3" alt="Map Example 3" class="showcase-image">
+                    <div class="video-popup">
+                        <video muted loop>
+                            <source src="video3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="popup-arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="products-section">
+            <h2>Products</h2>
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('short')">Short length</button>
+                    <button class="tab-button" onclick="showTab('middle')">Middle length</button>
+                    <button class="tab-button" onclick="showTab('marathon')">Marathon length</button>
+                </div>
+                
+                <div id="short" class="tab-content active">
+                    <div class="product">
+                        <h3>Short length (>1:30)</h3>
+                        <p>A short length beatmap like short ver or cut ver.</p>
+                        <p>Price starting from: <strong>$10</strong></p>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+                
+                <div id="middle" class="tab-content">
+                    <div class="product">
+                        <h3>Middle length (>3:00)</h3>
+                        <p>10 mind-bending puzzle levels with increasing difficulty</p>
+                        <p>rice starting from: <strong>$15</strong></p>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+                
+                <div id="marathon" class="tab-content">
+                    <div class="product">
+                        <h3>Marathon length</h3>
+                        <p>Complete collection of all my best levels with exclusive bonuses</p>
+                        <p>rice starting from: <strong>$25</strong> <span class="discount">(Save $15!)</span></p>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
+    
+    <script>
+        function showTab(tabName) {
+            var tabs = document.querySelectorAll('.tab-content');
+            var buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function switchStyle(styleName) {
+            const link = document.querySelector('link[rel="stylesheet"]');
+            link.href = styleName;
+            
+            // Update active button
+            document.querySelectorAll('.style-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Save preference to localStorage
+            localStorage.setItem('selectedStyle', styleName);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved style preference
+            const savedStyle = localStorage.getItem('selectedStyle');
+            if (savedStyle) {
+                const link = document.querySelector('link[rel="stylesheet"]');
+                link.href = savedStyle;
+                
+                // Update active button
+                document.querySelectorAll('.style-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.onclick.toString().includes(savedStyle)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            const showcaseItems = document.querySelectorAll('.showcase-item');
+            
+            showcaseItems.forEach(item => {
+                const video = item.querySelector('video');
+                const popup = item.querySelector('.video-popup');
+                
+                item.addEventListener('mouseenter', function() {
+                    popup.style.display = 'block';
+                    video.play();
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    popup.style.display = 'none';
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
