@@ -6,29 +6,26 @@
 </head>
 <body>
     <div class="container">
-        <div class="style-selector">
-            <h3>🎨 Choose Your Style</h3>
-            <div class="style-buttons">
-                <button class="style-btn active" onclick="switchStyle('style.css')" data-style="default">Default</button>
-                <button class="style-btn" onclick="switchStyle('style-glassmorphism.css')" data-style="glass">Glassmorphism</button>
-                <button class="style-btn" onclick="switchStyle('style-dark-neon.css')" data-style="neon">Dark Neon</button>
-                <button class="style-btn" onclick="switchStyle('style-minimalist.css')" data-style="minimal">Minimalist</button>
-                <button class="style-btn" onclick="switchStyle('style-gaming.css')" data-style="gaming">Gaming</button>
+        
+        <!-- Hero Section for different layouts -->
+        <div class="hero-section hero-article fullscreen-section card hero-card section">
+            <div class="hero-content">
+                <h1>osu! Mapping Commission</h1>
             </div>
         </div>
         
-        <h1>My Game Levels</h1>
-        <p>Welcome to my collection of custom game levels!</p>
-        
-        <div class="profile-section">
+        <div class="profile-section profile-sidebar profile-card card section fullscreen-section">
             <h2>About Me</h2>
             <div class="profile-content">
+                <div class="profile-visual profile-meta">
+                    <div class="profile-avatar"><img src="img/1057636788392443914.gif" alt=""></div>
+                    <div class="profile-title">Delis</div>
+                </div>
                 <div class="profile-info">
                     <h3>osu! Mapping Commission</h3>
-                    <p>Hello! I'm known as Delis on osu!, I have been mapping for around 13 years.
-                        The definitive difference as a way to approach mapping is that I used to be a top player in the game while being quite well-known in the mapping scene as well.
-                        
-                    </p>
+                    <p>Hello! I'm known as Delis on osu!, I have been mapping for around 13 years.</p>
+                    <p>The definitive difference as a way to approach mapping is that I used to be a top player in the game while being quite well-known in the mapping scene as well.</p>
+                    <p></p>
                     <div class="stats">
                         <span class="stat">40+ Ranked/Loved Maps</span>
                     </div>
@@ -36,10 +33,13 @@
             </div>
         </div>
         
-        <div class="showcase-section">
-            <h2>Creation previews</h2>
-            <div class="video-showcase">
-                <div class="showcase-item" data-video="video1.mp4">
+        <div class="showcase-section showcase-gallery showcase-card card section fullscreen-section">
+            <div class="section-header showcase-content">
+                <h2 class="section-title">Creation previews</h2>
+                <p class="section-description">Explore my latest mapping creations</p>
+            </div>
+            <div class="video-showcase gallery-masonry showcase-3d-grid">
+                <div class="showcase-item gallery-item showcase-3d-item" data-video="video1.mp4">
                     <img src="https://via.placeholder.com/300x200/4CAF50/white?text=Map+Example+1" alt="Map Example 1" class="showcase-image">
                     <div class="video-popup">
                         <video muted loop>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 
-                <div class="showcase-item" data-video="video2.mp4">
+                <div class="showcase-item gallery-item showcase-3d-item" data-video="video2.mp4">
                     <img src="https://via.placeholder.com/300x200/2196F3/white?text=Map+Example+2" alt="Map Example 2" class="showcase-image">
                     <div class="video-popup">
                         <video muted loop>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 
-                <div class="showcase-item" data-video="video3.mp4">
+                <div class="showcase-item gallery-item showcase-3d-item" data-video="video3.mp4">
                     <img src="https://via.placeholder.com/300x200/FF5722/white?text=Map+Example+3" alt="Map Example 3" class="showcase-image">
                     <div class="video-popup">
                         <video muted loop>
@@ -74,8 +74,37 @@
             </div>
         </div>
         
-        <div class="products-section">
-            <h2>Products</h2>
+        <div id="products" class="products-section products-spread products-card card section fullscreen-section">
+            <div class="section-header products-header products-content">
+                <h2 class="section-title">Products</h2>
+            </div>
+            <div class="product-grid products-layout products-neon-grid">
+                <div class="product-item product-feature product-neon-card">
+                    <div class="product-content">
+                        <h3>Short length (>1:30)</h3>
+                        <p>A short length beatmap like short ver or cut ver.</p>
+                        <div class="product-price">$10</div>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product-item product-feature product-neon-card">
+                    <div class="product-content">
+                        <h3>Middle length (>3:00)</h3>
+                        <p>A length longer than tv size/short ver and up to 3 minutes</p>
+                        <div class="product-price">$15</div>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product-item product-feature product-neon-card">
+                    <div class="product-content">
+                        <h3>Marathon length</h3>
+                        <p>Marathon length which is longer than 5 minutes.</p>
+                        <div class="product-price">$25</div>
+                        <span class="discount">Save $15!</span>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+            </div>
             <div class="tab-container">
                 <div class="tabs">
                     <button class="tab-button active" onclick="showTab('short')">Short length</button>
@@ -95,8 +124,8 @@
                 <div id="middle" class="tab-content">
                     <div class="product">
                         <h3>Middle length (>3:00)</h3>
-                        <p>10 mind-bending puzzle levels with increasing difficulty</p>
-                        <p>rice starting from: <strong>$15</strong></p>
+                        <p>A length longer than tv size/short ver and up to 3 minutes</p>
+                        <p>Price starting from: <strong>$15</strong></p>
                         <a href="#" class="buy-button">Buy Now</a>
                     </div>
                 </div>
@@ -104,8 +133,8 @@
                 <div id="marathon" class="tab-content">
                     <div class="product">
                         <h3>Marathon length</h3>
-                        <p>Complete collection of all my best levels with exclusive bonuses</p>
-                        <p>rice starting from: <strong>$25</strong> <span class="discount">(Save $15!)</span></p>
+                        <p>Marathon length which is longer than 5 minutes.</p>
+                        <p>Price starting from: <strong>$25</strong> <span class="discount">(Save $15!)</span></p>
                         <a href="#" class="buy-button">Buy Now</a>
                     </div>
 
@@ -126,33 +155,8 @@
             event.target.classList.add('active');
         }
         
-        function switchStyle(styleName) {
-            const link = document.querySelector('link[rel="stylesheet"]');
-            link.href = styleName;
-            
-            // Update active button
-            document.querySelectorAll('.style-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Save preference to localStorage
-            localStorage.setItem('selectedStyle', styleName);
-        }
         
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved style preference
-            const savedStyle = localStorage.getItem('selectedStyle');
-            if (savedStyle) {
-                const link = document.querySelector('link[rel="stylesheet"]');
-                link.href = savedStyle;
-                
-                // Update active button
-                document.querySelectorAll('.style-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.onclick.toString().includes(savedStyle)) {
-                        btn.classList.add('active');
-                    }
-                });
-            }
             
             const showcaseItems = document.querySelectorAll('.showcase-item');
             
