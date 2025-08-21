@@ -76,3 +76,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function copyToClipboard(username) {
+    const button = event.target;
+    
+    // Simple fallback that always works
+    const textArea = document.createElement('textarea');
+    textArea.value = username;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '-9999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopyPopup(button);
+        }
+    } catch (err) {
+        // Silently fail
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopyPopup(button) {
+    // Remove any existing popup
+    const existingPopup = button.querySelector('.copy-popup');
+    if (existingPopup) {
+        button.removeChild(existingPopup);
+    }
+    
+    // Create popup element
+    const popup = document.createElement('div');
+    popup.className = 'copy-popup';
+    popup.textContent = 'Username copied!';
+    popup.style.cssText = `
+        position: absolute;
+        background: rgba(46, 204, 113, 0.9);
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        pointer-events: none;
+        z-index: 1001;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+    `;
+    
+    // Position popup above button
+    button.style.position = 'relative';
+    button.appendChild(popup);
+    
+    // Animate in
+    setTimeout(() => {
+        popup.style.opacity = '1';
+    }, 10);
+    
+    // Add mouse leave listener to button
+    const handleMouseLeave = () => {
+        if (button.contains(popup)) {
+            popup.style.opacity = '0';
+            setTimeout(() => {
+                if (button.contains(popup)) {
+                    button.removeChild(popup);
+                }
+            }, 300);
+        }
+        button.removeEventListener('mouseleave', handleMouseLeave);
+    };
+    
+    button.addEventListener('mouseleave', handleMouseLeave);
+}
