@@ -91,7 +91,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
     gap: 15px;
+    text-align: center;
 }
 
 .profile-avatar {
@@ -128,6 +135,7 @@ body {
     border-radius: 10px;
     text-align: center;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .stat {
@@ -151,14 +159,14 @@ body {
 
 .video-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
 .showcase-item {
     position: relative;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: visible;
     transition: transform 0.3s ease;
 }
 
@@ -174,21 +182,27 @@ body {
 }
 
 .video-popup {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 10px;
-    padding: 10px;
+    position: fixed;
     display: none;
-    z-index: 100;
+    z-index: 99999;
+    pointer-events: none;
+    transition: left 0.05s ease, top 0.05s ease;
 }
 
 .video-popup video {
-    width: 300px;
-    height: 200px;
+    width: 640px !important;
+    height: 360px !important;
+    max-width: 90vw;
+    max-height: 90vh;
     border-radius: 8px;
+    display: block;
+    object-fit: contain;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
 /* Products as Individual Cards */
