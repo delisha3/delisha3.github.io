@@ -1,15 +1,3 @@
-function showTab(tabName) {
-    var tabs = document.querySelectorAll('.tab-content');
-    var buttons = document.querySelectorAll('.tab-button');
-    
-    tabs.forEach(tab => tab.classList.remove('active'));
-    buttons.forEach(button => button.classList.remove('active'));
-    
-    document.getElementById(tabName).classList.add('active');
-    event.target.classList.add('active');
-}
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
     const showcaseItems = document.querySelectorAll('.showcase-item');
