@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delis - Editorial Sample</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        /* Hero Section - Large Typography */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 120px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 80px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 12vw, 12rem);
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 300;
+            color: #000000;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-left: 4px;
+        }
+
+        .hero-accent {
+            color: #ff0080;
+        }
+
+        /* Editorial Layout - Masonry Style */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px 60px;
+            margin-bottom: 120px;
+        }
+
+        /* Profile Section */
+        .profile-block {
+            position: relative;
+        }
+
+        .profile-header {
+            margin-bottom: 40px;
+        }
+
+        .profile-header h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #000000;
+            transform: rotate(-3deg);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 25px;
+            color: #333333;
+        }
+
+        .stats-editorial {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #000000;
+        }
+
+        .stat-item {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff0080;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        /* Showcase Section - Magazine Layout */
+        .showcase-block {
+            position: relative;
+        }
+
+        .showcase-header {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .showcase-header h2 {
+            font-size: 4rem;
+            color: #000000;
+            position: relative;
+            display: inline-block;
+        }
+
+        .showcase-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #ff0080;
+        }
+
+        .showcase-masonry {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .showcase-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .showcase-item:nth-child(1) {
+            grid-column: 1 / 3;
+        }
+
+        .showcase-item:nth-child(1) img {
+            height: 400px;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+            transform: rotate(-1deg);
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-item:hover img {
+            transform: rotate(0deg) scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* Products Section - Full Width Editorial */
+        .products-editorial {
+            margin-top: 120px;
+            padding-top: 80px;
+            border-top: 1px solid #000000;
+        }
+
+        .products-header {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .products-header h2 {
+            font-size: 6rem;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .products-subtitle {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #666666;
+        }
+
+        .products-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .product-editorial {
+            background: #ffffff;
+            position: relative;
+            transition: all 0.4s ease;
+            padding: 50px 40px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-editorial:hover {
+            transform: translateY(-12px);
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.08),
+                0 50px 100px rgba(0, 0, 0, 0.06);
+            border-color: #ff0080;
+        }
+
+        .product-editorial h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .product-editorial p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ff0080;
+            margin-bottom: 40px;
+            line-height: 1;
+        }
+
+        .contact-btn-editorial {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            padding: 18px 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .contact-btn-editorial:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn-editorial:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Video Popup - Editorial Style */
+        .video-popup {
+            position: fixed;
+            display: none;
+            z-index: 99999;
+            pointer-events: none;
+        }
+
+        .video-popup video {
+            width: 640px !important;
+            height: 360px !important;
+            max-width: 90vw;
+            max-height: 90vh;
+            border: 2px solid #000000;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Copy Popup */
+        .copy-popup {
+            position: absolute;
+            background: #ff0080;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            pointer-events: none;
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .container {
+                padding: 40px 30px;
+            }
+
+            .editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .products-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .showcase-masonry {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-item:nth-child(1) {
+                grid-column: 1;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .products-header h2 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Delis</h1>
+            <div class="hero-subtitle">osu! <span class="hero-accent">Mapping</span> Commissions</div>
+        </div>
+
+        <div class="editorial-grid">
+            <div class="profile-block">
+                <div class="profile-header">
+                    <h2>About</h2>
+                </div>
+                <div class="profile-meta">
+                    <div class="profile-avatar">
+                        <img src="https://a.ppy.sh/1603923" alt="Delis">
+                    </div>
+                    <div class="profile-name">Delis</div>
+                </div>
+                <p class="profile-text">Hello! I'm known as Delis on osu!, I have been mapping for around 13 years.</p>
+                <p class="profile-text">My approach to mapping is unique with my background as a former top player as well as my various experiences in mapping scene.</p>
+                <p class="profile-text">I am also known for old style mapping which not many people can replicate nowadays.</p>
+                <div class="stats-editorial">
+                    <div class="stat-item">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Ranked/Loved Maps</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Years OWC Custom Maps</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-block">
+                <div class="showcase-header">
+                    <h2>Portfolio</h2>
+                </div>
+                <div class="showcase-masonry">
+                    <div class="showcase-item" data-video="assets/vid/nonbreath.mp4">
+                        <img src="assets/img/nonbreath.jpg" alt="Map Preview">
+                    </div>
+                    <div class="showcase-item" data-video="assets/vid/dorchadas.mp4">
+                        <img src="assets/img/dorchadas.jpg" alt="Map Preview">
+                    </div>
+                    <div class="showcase-item" data-video="assets/vid/soiree.mp4">
+                        <img src="assets/img/soiree.jpg" alt="Map Preview">
+                    </div>
+                    <div class="showcase-item" data-video="assets/vid/hachigatsu.mp4">
+                        <img src="assets/img/hachigatsu.jpg" alt="Map Preview">
+                    </div>
+                    <div class="showcase-item" data-video="assets/vid/hades.mp4">
+                        <img src="assets/img/hades.jpg" alt="Map Preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-editorial">
+            <div class="products-header">
+                <h2>Rates</h2>
+                <div class="products-subtitle">Commission Pricing</div>
+            </div>
+            <div class="products-layout">
+                <div class="product-editorial">
+                    <h3>Short</h3>
+                    <p>Short length beatmaps under 1:30. Perfect for short versions or cut versions.</p>
+                    <div class="product-price">$10+</div>
+                    <button class="contact-btn-editorial" onclick="copyToClipboard('delisha')">Contact on Discord</button>
+                </div>
+                <div class="product-editorial">
+                    <h3>Standard</h3>
+                    <p>Standard length beatmaps between 1:30 and 5:00. Most common commission type.</p>
+                    <div class="product-price">$15+</div>
+                    <button class="contact-btn-editorial" onclick="copyToClipboard('delisha')">Contact on Discord</button>
+                </div>
+                <div class="product-editorial">
+                    <h3>Marathon</h3>
+                    <p>Extended marathon beatmaps over 5:00. For those epic length songs.</p>
+                    <div class="product-price">$50+</div>
+                    <button class="contact-btn-editorial" onclick="copyToClipboard('delisha')">Contact on Discord</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="global-video-popup" class="video-popup">
+        <video loop>
+            <source id="video-source" src="" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        // Video popup functionality
+        const showcaseItems = document.querySelectorAll('.showcase-item');
+        const globalPopup = document.getElementById('global-video-popup');
+        const globalVideo = globalPopup.querySelector('video');
+        const videoSource = document.getElementById('video-source');
+
+        let animationId = null;
+
+        function updatePopupPosition(e) {
+            if (animationId) cancelAnimationFrame(animationId);
+
+            animationId = requestAnimationFrame(() => {
+                const popupWidth = 640;
+                const popupHeight = 360;
+                const offset = 30;
+
+                let left = e.clientX + offset;
+                let top = e.clientY - popupHeight - offset;
+
+                if (left + popupWidth > window.innerWidth - 10) {
+                    left = e.clientX - popupWidth - offset;
+                }
+                if (left < 10) left = 10;
+
+                if (top < 10) {
+                    top = e.clientY + offset;
+                }
+                if (top + popupHeight > window.innerHeight - 10) {
+                    top = window.innerHeight - popupHeight - 10;
+                }
+
+                globalPopup.style.left = left + 'px';
+                globalPopup.style.top = top + 'px';
+            });
+        }
+
+        showcaseItems.forEach(item => {
+            const videoSrc = item.getAttribute('data-video');
+
+            item.addEventListener('mouseenter', function(e) {
+                videoSource.src = videoSrc;
+                globalVideo.load();
+                globalPopup.style.display = 'block';
+                globalVideo.play();
+                updatePopupPosition(e);
+            });
+
+            item.addEventListener('mousemove', updatePopupPosition);
+
+            item.addEventListener('mouseleave', function() {
+                globalPopup.style.display = 'none';
+                globalVideo.pause();
+                globalVideo.currentTime = 0;
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        });
+
+        // Copy to clipboard
+        function copyToClipboard(username) {
+            const button = event.target;
+
+            const textArea = document.createElement('textarea');
+            textArea.value = username;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showCopyPopup(button);
+            } catch (err) {}
+
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyPopup(button) {
+            const existingPopup = button.querySelector('.copy-popup');
+            if (existingPopup) button.removeChild(existingPopup);
+
+            const popup = document.createElement('div');
+            popup.className = 'copy-popup';
+            popup.textContent = 'Username Copied';
+            popup.style.cssText = `
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+            `;
+
+            button.style.position = 'relative';
+            button.appendChild(popup);
+
+            setTimeout(() => {
+                if (button.contains(popup)) button.removeChild(popup);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
