@@ -103,11 +103,11 @@ function showCopyPopup(button) {
     popup.textContent = 'Username copied!';
     popup.style.cssText = `
         position: absolute;
-        background: rgba(46, 204, 113, 0.9);
+        background: rgba(46, 204, 113, 1);
         color: white;
         padding: 6px 10px;
         border-radius: 6px;
-        font-size: 0.75rem;
+        font-size: 1rem;
         font-weight: 500;
         pointer-events: none;
         z-index: 1001;

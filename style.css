@@ -43,20 +43,20 @@ h1, h2, h3 {
 }
 
 .hero h1 {
+    transform: rotate(-1deg);
     font-size: clamp(3rem, 8vw, 8rem);
-    color: #0a0a0a;
+    color: #ff006e;
+    text-shadow: 5px 4px #000, 10px 8px #ffed00;
+    font-weight: 600;
     margin-bottom: 20px;
-    line-height: 0.9;
+    line-height: 1;
 }
 
 .hero p {
     font-size: 1.5rem;
-    color: #ff006e;
-    font-weight: 600;
     letter-spacing: 0.1em;
 }
 
-/* Asymmetric Grid Layout */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -122,8 +122,15 @@ h1, h2, h3 {
     font-weight: 700;
     text-align: center;
     border: 3px solid #0a0a0a;
-    box-shadow: 5px 5px 0 #00d9ff;
     transform: rotate(-1deg);
+}
+
+.stats:nth-child(7) {
+    box-shadow: 5px 5px 0 #ff006e;
+}
+
+.stats:nth-child(8) {
+    box-shadow: 5px 5px 0 #ffed00;
 }
 
 /* Showcase Section */
@@ -193,10 +200,10 @@ h1, h2, h3 {
     text-align: center;
     margin-bottom: 50px;
     display: inline-block;
-    background: #00d9ff;
+    background: #ffffff;
     padding: 20px 40px;
     border: 4px solid #0a0a0a;
-    box-shadow: 10px 10px 0 #ff006e;
+    box-shadow: 10px 10px 0 #ffed00;
     transform: rotate(-1deg);
     width: 100%;
 }
@@ -334,7 +341,6 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-/* Copy Popup */
 .copy-popup {
     position: absolute;
     background: #ffed00;
@@ -350,7 +356,6 @@ h1, h2, h3 {
     box-shadow: 4px 4px 0 #ff006e;
 }
 
-/* Mobile Responsive */
 @media (max-width: 968px) {
     .content-grid {
         grid-template-columns: 1fr;
