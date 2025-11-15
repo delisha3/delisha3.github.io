@@ -1,2 +1,4 @@
-CLAUDE.md
+CLAUDE.*
 .DS_Store
+
+*.code-workspace
